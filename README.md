@@ -5,8 +5,8 @@ Full Project is under development
 <br>
 link for developed Project<br>
 https://www.mediafire.com/folder/dniusbkbj7ac9/email+sending+system
-<br>
-When User registration user, autometicaly send 
+<br><br><br>
+When User registration user, autometicaly send verification OTP to registration email<br>
 
 
 
