@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration</title>
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -22,7 +25,17 @@
         <div class="login-box">
             <h1>Registration</h1>
             <hr style="color: grey;">
-            <br>
+                <?php
+                    include_once("../login/lib/functions/admin_user_func.php");
+                    
+
+                    if(isset($_POST['register'])){        
+                        $result = reg_uesr($_POST['fname'],$_POST['lname'],$_POST['username'],$_POST['email'],$_POST['pass1'],$_POST['cpass'],$_POST['country'],$_POST['mobile']);
+                        echo ($result);
+
+                        
+                    }
+                ?>
                 <form action="<?php echo($_SERVER['PHP_SELF']); ?>" method="POST">
                     <table border="0">
                         <tr>
@@ -35,10 +48,10 @@
                         </tr>
                         <tr>
                             <td>
-                                <input type="text" name="fname" placeholder="First Name" class="login-input"><p></p>
+                                <input type="text" name="fname" placeholder="First Name" class="login-input" required><p></p>
                             </td>
                             <td>
-                                <input type="text" name="lname" placeholder="Last Name" class="login-input"><p></p>
+                                <input type="text" name="lname" placeholder="Last Name" class="login-input" required><p></p>
                             </td>
                         </tr>
                         <tr>
@@ -48,7 +61,7 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <input type="text" name="username" placeholder="Username" class="login-input"><p></p>
+                                <input type="text" name="username" placeholder="Username" class="login-input" required><p></p>
                             </td>
                         </tr>
                         <tr>
@@ -58,7 +71,7 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <input type="email" name="email" placeholder="Email" class="login-input"><p></p>
+                                <input type="email" name="email" placeholder="Email" class="login-input" required><p></p>
                             </td>
                         </tr>
                         <tr>
@@ -71,10 +84,10 @@
                         </tr>
                         <tr>
                             <td>
-                                <input type="password" name="pass1" placeholder="Password" class="login-input"><p></p>
+                                <input type="password" name="pass1" placeholder="Password" class="login-input" required><p></p>
                             </td>
                             <td>
-                                <input type="password" name="cpass" placeholder="Confirm Password" class="login-input"><p></p>
+                                <input type="password" name="cpass" placeholder="Confirm Password" class="login-input" required><p></p>
                             </td>
                         </tr>
                         <tr>
@@ -96,7 +109,7 @@
                                 </select><p></p>
                             </td>
                             <td>
-                                <input type="text" name="lname" placeholder="Last Name" class="login-input"><p></p>
+                                <input type="text" name="mobile" placeholder="Mobile Number" class="login-input" required><p></p>
                             </td>
                         </tr>
                     </table>
@@ -108,8 +121,10 @@
             <hr style="color: grey;">
             <p>Already have an Account ? <a href="login.php" style="text-decoration: none; color:#2949b4;">Login</a></p>            
         </div>
-    <br><br><br><br><br><br><br><br>
+    <br><br><br><br><br>
 </div>
+
+
 
 
 
