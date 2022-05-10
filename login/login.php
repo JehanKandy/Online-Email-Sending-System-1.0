@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -22,13 +22,22 @@
         <div class="login-box">
             <h1>login</h1>
             <hr style="color: grey;">
-            <br>
+            <?php
+                    include_once("../login/lib/functions/admin_user_func.php");
+                    
+
+                    if(isset($_POST['login'])){        
+                        $result = user_login($_POST['username'],$_POST['password']);
+                        echo ($result);
+                        
+                    }
+                ?>
                 <form action="<?php echo($_SERVER['PHP_SELF']); ?>" method="POST">
                     <p>Username : </p>
-                    <input type="text" name="username" placeholder="Username" class="login-input">
+                    <input type="text" name="username" placeholder="Username" class="login-input" required>
                     <br><br>
                     <p>Password : </p>
-                    <input type="password" name="password" placeholder="Password" class="login-input">
+                    <input type="password" name="password" placeholder="Password" class="login-input" required>
                     <br><br>
                     <input type="submit" value="Login" name="login" class="login-btn">
                 </form>
